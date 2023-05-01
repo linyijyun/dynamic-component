@@ -1,6 +1,15 @@
 <div class="setting">
   <nb-toggle status="danger" labelPosition="start" (checkedChange)="toggleRemoveMode($event)">
-    <nb-icon icon="trash-2-outline"></nb-icon>
+    <div style="display: flex;">
+      <div style="margin-right: 5px;">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAABLElEQVR4nNXTzytEURjG8YtSkmkaC9mI2YmUrYS1sqTYWGJjSRYSiZEfUVhR/tOPDu/VbebemSkbzubc9z3P/fY8b+dk2b9ZGMBoD80C7nCPp7RnXcQXeMRGxfkqzjCMGp4x3g14gims47bk/Cb2sYA1om4k12XAETzE9ynqFcBJHBZgL3itcrmGc+yFix9o0QWuEzRgtVRXRo8fdnCQQzGHD+wXNJMRfwitrsA26Fs4GozefsnsZ3sCC+L7gNVjZh/Ra6W5YqVf2FzuLOpmgI76AlTBwlkz6tTfxWb2S9g7ljEdmv6gymOmWS3FFWnmV6knVHXM+TivBXSxL6jvR98xszZNDp0pxD/GRBnwshCzA1YC/YqP7VIttnAVTkthbdB0B9MzPemm/XvrEzgLArTDssrnAAAAAElFTkSuQmCC">
+      </div>
+      <div style="width: 20px;">
+        <nb-icon icon="trash-2-outline"></nb-icon>
+      </div>
+
+    </div>
+
   </nb-toggle>
   <nb-toggle status="danger" labelPosition="start" (checkedChange)="toggleDrag($event)">
     拖曳功能
@@ -25,9 +34,9 @@
   </a>
   <app-component-selector (choosed)="createComponent($event, true)">
     <nb-select class="right" placeholder="選擇資料年分" [(selected)]="selectedYear">
-      <nb-option value=2018>2018</nb-option>
-      <nb-option value=2019>2019</nb-option>
-      <nb-option value=2020>2020</nb-option>
+      <nb-option value=2023>2023</nb-option>
+      <nb-option value=2022>2022</nb-option>
+      <nb-option value=2021>2021</nb-option>
     </nb-select>
   </app-component-selector>
 </nb-sidebar>

@@ -35,7 +35,7 @@ export class CustomComponent implements OnInit, AfterViewInit {
   childUniqueKey: number = 0;
   componentsIndex: Array<number> = [];
   componentsReferences = Array<ComponentRef<any>>();
-  selectedYear = 2018;
+  selectedYear = 2023;
   wrappers = {
     small: SmallComponent,
   };
@@ -127,7 +127,7 @@ export class CustomComponent implements OnInit, AfterViewInit {
       targetRef.instance['uniqueKey'] = ++this.childUniqueKey;
 
       // 更新資料
-      this.customService.updateInputData(adItem, targetRef, false, 2018);
+      this.customService.updateInputData(adItem, targetRef, false, 2023);
       targetRef.changeDetectorRef.detectChanges();
 
       // 訂閱刪除事件
@@ -137,7 +137,7 @@ export class CustomComponent implements OnInit, AfterViewInit {
       // 編輯事件
       targetRef.instance['changeUpdateStatus'].subscribe(status => {
         console.log(status)
-        this.customService.updateInputData(adItem, targetRef, status, 2018)
+        this.customService.updateInputData(adItem, targetRef, status, 2023)
       })
 
       let html = adItem['size'] + " " + "cdk-drag ng-star-inserted"

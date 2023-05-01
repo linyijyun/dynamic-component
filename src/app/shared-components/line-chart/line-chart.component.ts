@@ -17,7 +17,7 @@ export class LineChartComponent implements OnInit, OnChanges {
 
 
   @Input() data: LineChart = {
-    year: 2018,
+    year: 2023,
     xAxis: [],
     lines: [],
   };

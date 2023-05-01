@@ -1,7 +1,7 @@
 <div style="height: 300px;">
   <div style="display: flex;">
-    <div *ngIf="removable" (click)="removeComponent()">刪除</div>
-    <div *ngIf="removable" (click)="updateComponent()">編輯</div>
+    <div *ngIf="removable" class="deleteText" (click)="removeComponent()">刪除</div>
+    <div *ngIf="removable" class="updateText" (click)="updateComponent()">編輯</div>
   </div>
 
   <nb-card *ngIf="!updateStatus" class="full-content">
@@ -19,7 +19,7 @@
   </nb-card>
 
   <nb-card *ngIf="updateStatus" class="full-content">
-    <nb-card-header> 我是編輯畫面
+    <nb-card-header> 我是Bar圖的編輯畫面
     </nb-card-header>
     <nb-card-body>
       我是編輯畫面

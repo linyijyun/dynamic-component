@@ -17,7 +17,7 @@ export class BarChartComponent implements OnInit, OnChanges {
   @Output() changeUpdateStatus: EventEmitter<boolean> = new EventEmitter();
 
   @Input() data: BarChart = {
-    year: 2018,
+    year: 2023,
     xType: 'category',
     yType: 'value',
     xAxis: [],

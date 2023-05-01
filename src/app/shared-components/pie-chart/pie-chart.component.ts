@@ -10,7 +10,7 @@ import { PieChart } from './pie-chart';
 export class PieChartComponent implements OnInit, OnChanges {
 
   @Input() data: PieChart = {
-    year: 2018,
+    year: 2023,
     legend: [],
     data: []
   };

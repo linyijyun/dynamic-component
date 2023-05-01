@@ -4,11 +4,37 @@
   margin: 0;
   padding: 0;
 }
+
 .container {
   position: relative;
 }
+
 .right {
   position: absolute;
   right: -1rem;
   top: -2rem;
+}
+
+.deleteText {
+  cursor: pointer;
+  color: #ff3eaf;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 10px 10px 0;
+}
+
+.deleteText:hover {
+  color: #ffffff;
+}
+
+.updateText {
+  cursor: pointer;
+  color: #00ffea;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 10px 10px 0;
+}
+
+.updateText:hover {
+  color: #ffffff;
 }
