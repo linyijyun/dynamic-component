@@ -1,0 +1,13 @@
+<nb-card class="full-content">
+  <nb-card-header> {{data.year}}年 圓餅圖
+    <div class="container">
+      <nb-select class="right" placeholder="選擇時間" [(selected)]="selectedTime" (selectedChange)="selectedChange()">
+        <nb-option value="0">上半年</nb-option>
+        <nb-option value="1">下半年</nb-option>
+      </nb-select>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div echarts [options]="pieChartOption" class="full-content"></div>
+  </nb-card-body>
+</nb-card>

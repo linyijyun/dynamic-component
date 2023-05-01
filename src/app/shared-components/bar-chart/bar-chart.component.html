@@ -1,0 +1,30 @@
+<div style="height: 300px;">
+  <div style="display: flex;">
+    <div *ngIf="removable" (click)="removeComponent()">刪除</div>
+    <div *ngIf="removable" (click)="updateComponent()">編輯</div>
+  </div>
+
+  <nb-card *ngIf="!updateStatus" class="full-content">
+    <nb-card-header> {{data.year}}年 長條圖
+      <div class="container">
+        <nb-select class="right" placeholder="選擇時間" [(selected)]="selectedTime" (selectedChange)="selectedChange()">
+          <nb-option value="0">上半年</nb-option>
+          <nb-option value="1">下半年</nb-option>
+        </nb-select>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <div echarts [options]="barChartOption" [merge]="barChartUpdates" class="full-content"></div>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card *ngIf="updateStatus" class="full-content">
+    <nb-card-header> 我是編輯畫面
+    </nb-card-header>
+    <nb-card-body>
+      我是編輯畫面
+    </nb-card-body>
+  </nb-card>
+</div>
+
+

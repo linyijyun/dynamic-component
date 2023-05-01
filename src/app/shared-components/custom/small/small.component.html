@@ -1,0 +1,11 @@
+<div @bounceIn class="small-height w-100 padding" [ngClass]="randomShake()">
+  <div *ngIf="removable" class="container">
+    <button nbButton filled status="danger" class="close" (click)="removeComponent()">
+      <nb-icon icon="close-outline"></nb-icon>
+    </button>
+    <button (click)="updateComponent()">
+      編輯
+    </button>
+  </div>
+  <ng-content></ng-content>
+</div>

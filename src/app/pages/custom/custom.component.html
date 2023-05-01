@@ -1,0 +1,33 @@
+<div class="setting">
+  <nb-toggle status="danger" labelPosition="start" (checkedChange)="toggleRemoveMode($event)">
+    <nb-icon icon="trash-2-outline"></nb-icon>
+  </nb-toggle>
+  <nb-toggle status="danger" labelPosition="start" (checkedChange)="toggleDrag($event)">
+    拖曳功能
+  </nb-toggle>
+</div>
+<div cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)" class="row w-100">
+
+  <div *ngFor="let movie of movies" cdkDrag [cdkDragDisabled]="movie.disabled">
+    <ng-container appDynamicComponentHost>
+    </ng-container>
+  </div>
+
+  <ngx-add-button *ngIf="editable" class="col-md-3 small-height" [size]="'small'" [haveOption]="false"
+    (click)="addComponent()">
+  </ngx-add-button>
+</div>
+<hr />
+<!-- 右側選單選擇元件 -->
+<nb-sidebar tag="selector" class="sidebar rightSidebar" end state="collapsed">
+  <a class="toggleBtn" href="javascript: void(0)" (click)="sidebarToggle()">
+    <nb-icon icon="chevron-right-outline" [ngClass]="{'rotate': !sideState}"></nb-icon>
+  </a>
+  <app-component-selector (choosed)="createComponent($event, true)">
+    <nb-select class="right" placeholder="選擇資料年分" [(selected)]="selectedYear">
+      <nb-option value=2018>2018</nb-option>
+      <nb-option value=2019>2019</nb-option>
+      <nb-option value=2020>2020</nb-option>
+    </nb-select>
+  </app-component-selector>
+</nb-sidebar>
