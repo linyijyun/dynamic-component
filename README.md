@@ -1,6 +1,7 @@
 # DynamicComponent
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+Using gridstack library, version 5.0.0
 
 ## Development server
 
