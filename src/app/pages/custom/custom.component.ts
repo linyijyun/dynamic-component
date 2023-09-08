@@ -1,6 +1,6 @@
 import { element } from 'protractor';
 import { UtilsService } from './../../services/utils.service';
-import { AfterViewInit, Component, ComponentFactoryResolver, ComponentRef, OnInit, QueryList, Renderer2, SimpleChange, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, ComponentRef, ElementRef, OnInit, QueryList, Renderer2, SimpleChange, ViewChild, ViewChildren } from '@angular/core';
 import { NbSidebarService } from '@nebular/theme';
 import { CustomService } from 'src/app/services/custom.service';
 import { DynamicComponentHostDirective } from './dynamic-component-host.directive';
@@ -9,6 +9,10 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 import { LineChartComponent } from "src/app/shared-components/line-chart/line-chart.component";
 import { BarChartComponent } from "src/app/shared-components/bar-chart/bar-chart.component";
+
+import { GridStack, GridStackWidget } from 'gridstack';
+import 'gridstack/dist/gridstack.min.css';
+import 'gridstack/dist/h5/gridstack-dd-native';
 
 
 @Component({
@@ -60,6 +64,14 @@ export class CustomComponent implements OnInit, AfterViewInit {
       disabled: true,
       id: 2,
     },
+    {
+      name: '長條圖',
+      img: './assets/bar.jpg',
+      size: 'col-xl-3 col-lg-6 col-12',
+      val: BarChartComponent,
+      disabled: true,
+      id: 3,
+    },
     // {
     //   component: 'job',
     //   data: { headline: 'head1', body: 'body1' },
@@ -102,16 +114,33 @@ export class CustomComponent implements OnInit, AfterViewInit {
     // },
   ];
 
+  public serializedData:GridStackWidget[];
+  
+  options = { // put in gridstack options here
+    disableOneColumnMode: false,
+    float: true,
+    removable: false,
+    disableDrag: false,
+    disableResize: false,
+    resizable: { autoHide: true, handles: 'all' },
+  };
+
   ngOnInit() {
 
   }
 
   ngAfterViewInit(): void {
     this.initComponent();
+
+
+
   }
 
   //渲染畫面
   initComponent() {
+    var grid = GridStack.init();
+    // grid.addWidget();
+
     this.adHosts.forEach((host, index) => {
       // console.log(host)
       // console.log(index)
@@ -136,14 +165,18 @@ export class CustomComponent implements OnInit, AfterViewInit {
       });
       // 編輯事件
       targetRef.instance['changeUpdateStatus'].subscribe(status => {
-        console.log(status)
+        // console.log(status)
         this.customService.updateInputData(adItem, targetRef, status, 2023)
       })
 
-      let html = adItem['size'] + " " + "cdk-drag ng-star-inserted"
-      document.getElementsByClassName("cdk-drag")[index - 1 + 1].setAttribute("class", html)
+      let html = "item" + index + " ng-star-inserted grid-stack-item";
 
+      document.getElementsByClassName("item" + index)[0].setAttribute("class", html);
+      const item = document.querySelector('.item' + index);
+      grid.addWidget(item, { w:6, h: 2 });
+      
     })
+
   }
 
   createComponent(component, isNew) {

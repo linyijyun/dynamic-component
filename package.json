@@ -28,6 +28,7 @@
     "bootstrap": "4.3.1",
     "echarts": "^5.0.0",
     "eva-icons": "^1.1.2",
+    "gridstack": "^5.0.0",
     "ng-animate": "^1.0.0",
     "ngx-echarts": "^5.2.2",
     "rxjs": "~6.6.0",

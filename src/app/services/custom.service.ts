@@ -15,9 +15,9 @@ export class CustomService {
 
 
   pushChartRefs(componentRef: ComponentRef<any>) {
-    console.log(componentRef)
+    // console.log(componentRef)
     this.chartRefList.push(componentRef);
-    console.log(this.chartRefList)
+    // console.log(this.chartRefList)
   }
 
   pushComponent(component) {

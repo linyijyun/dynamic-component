@@ -15,16 +15,18 @@
     拖曳功能
   </nb-toggle>
 </div>
-<div cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)" class="row w-100">
 
-  <div *ngFor="let movie of movies" cdkDrag [cdkDragDisabled]="movie.disabled">
-    <ng-container appDynamicComponentHost>
-    </ng-container>
-  </div>
+<div class="grid-stack">
+  <div class="row w-100">
+    <div *ngFor="let movie of movies; let i = index" [class]="'item' + i + ' ng-star-inserted grid-stack-item'">
+      <ng-container appDynamicComponentHost>
+      </ng-container>
+    </div>
 
-  <ngx-add-button *ngIf="editable" class="col-md-3 small-height" [size]="'small'" [haveOption]="false"
+    <!-- <ngx-add-button *ngIf="editable" class="col-md-3 small-height" [size]="'small'" [haveOption]="false"
     (click)="addComponent()">
-  </ngx-add-button>
+  </ngx-add-button> -->
+  </div>
 </div>
 <hr />
 <!-- 右側選單選擇元件 -->

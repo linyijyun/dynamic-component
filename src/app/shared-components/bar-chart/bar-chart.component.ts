@@ -200,8 +200,8 @@ export class BarChartComponent implements OnInit, OnChanges {
     this.drawChart(newData)
   }
   ngOnInit() {
-    console.log('BarChart OnInit');
-    console.log(this.data);
+    // console.log('BarChart OnInit');
+    // console.log(this.data);
   }
   ngOnChanges(changes: any): void {
     if (changes.data && changes.data.currentValue) {

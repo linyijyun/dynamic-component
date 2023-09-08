@@ -113,7 +113,7 @@ export class LineChartComponent implements OnInit, OnChanges {
   };
   lineChartUpdates: any = {};
   drawChart(data: any) {
-    console.log(data)
+    // console.log(data)
     const colorNames = ['primary', 'info', 'danger', 'success', 'warning', 'gray'];
     const series = [];
 
@@ -271,15 +271,15 @@ export class LineChartComponent implements OnInit, OnChanges {
     this.drawChart(newData)
   }
   ngOnInit() {
-    console.log('LineChart OnInit');
-    console.log(this.data);
+    // console.log('LineChart OnInit');
+    // console.log(this.data);
   }
   ngOnChanges(changes: any): void {
     if (changes.data && changes.data.currentValue) {
       this.data = changes.data.currentValue;
       this.drawChart(this.data);
     }
-    console.log(this.updateStatus)
+    // console.log(this.updateStatus)
   }
   removeComponent() {
     console.log(this.uniqueKey)
